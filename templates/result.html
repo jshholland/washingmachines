@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Thanks!</h1>
+
+<p>Successfully updated {{ machine }}! <a href="{% url votes.views.detail machine.id %}">Return to its page?</a></p>
+{% endblock %}

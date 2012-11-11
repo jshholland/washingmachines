@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if washer_list %}
+	<h2>Washing machines</h2>
+	<ul>
+	{% for machine in washer_list %}
+		<li><a href="{% url votes.views.detail machine.id %}">{{ machine }} - {{ machine.get_state_display }}</a></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+
+{% if dryer_list %}
+	<h2>Tumble driers</h2>
+	<ul>
+	{% for machine in dryer_list %}
+		<li><a href="{% url votes.views.detail machine.id %}">{{ machine }} - {{ machine.get_state_display }}</a></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+
+{% if not washer_list and not dryer_list %}
+<p>No machines available.</p>
+{% endif %}
+
+{% endblock %}

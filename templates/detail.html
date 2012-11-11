@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ machine }} - {{ block.super }}
+{% endblock %}
+
+{% block header %}<h1>{{ machine }}</h1>{% endblock %}
+
+{% block content %}
+
+{% if err %}<p><strong>{{ err }}</strong></p>{% endif %}
+
+<p>
+{{ machine }} is {{ machine.get_state_display|upper }}. Last updated {{ machine.last_updated|timesince }} ago.
+</p>
+
+<form action="{% url votes.views.edit machine.id %}" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit">
+</form>
+
+{% endblock %}
