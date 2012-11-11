@@ -20,7 +20,7 @@ def detail(request, machine_id):
 
 def edit(request, machine_id):
     m = get_object_or_404(Machine, pk=machine_id)
-    u = Update(machine=m, text="")
+    u = Update(machine=m, comment="")
     f = UpdateForm(request.POST, instance=u)
     if f.is_valid():
         m.last_updated = datetime.now()

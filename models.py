@@ -27,7 +27,7 @@ class Machine(models.Model):
 
 class Update(models.Model):
     state = models.CharField(max_length=1, choices=STATE_CHOICES)
-    text = models.TextField()
+    comment = models.TextField()
     time = models.DateTimeField(auto_now=True)
     machine = models.ForeignKey(Machine)
 
