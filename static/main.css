@@ -43,6 +43,10 @@ header h1 a {
 	padding-bottom: 1.25em;
 }
 
+#content li {
+	margin: .5em 0;
+}
+
 #content span {
 	border-radius: .4rem;
 }
