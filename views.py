@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response, render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from datetime import datetime
 from votes.models import Machine, Update, UpdateForm
 
@@ -6,7 +6,7 @@ from votes.models import Machine, Update, UpdateForm
 def index(request):
     washer_list = Machine.objects.filter(kind='w').order_by('number')
     dryer_list = Machine.objects.filter(kind='d').order_by('number')
-    return render_to_response('index.html', {
+    return render(request, 'index.html', {
         'washer_list': washer_list,
         'dryer_list': dryer_list,
     })
@@ -33,4 +33,4 @@ def edit(request, machine_id):
 
 def result(request, machine_id):
     m = get_object_or_404(Machine, pk=machine_id)
-    return render_to_response("result.html", {'machine': m})
+    return render(request, "result.html", {'machine': m})

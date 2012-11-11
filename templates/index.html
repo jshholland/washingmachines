@@ -3,19 +3,25 @@
 {% block content %}
 
 {% if washer_list %}
-	<h2>Washing machines</h2>
+	<h1>Washing machines</h1>
 	<ul>
 	{% for machine in washer_list %}
-		<li><a href="{% url votes.views.detail machine.id %}">{{ machine }} - {{ machine.get_state_display }}</a></li>
+		<li>
+			<a href="{% url votes.views.detail machine.id %}">{{ machine }}</a>
+			 - <span class="state-{{ machine.state }}">{{ machine.get_state_display }}</span>
+		</li>
 	{% endfor %}
 	</ul>
 {% endif %}
 
 {% if dryer_list %}
-	<h2>Tumble driers</h2>
+	<h1>Tumble driers</h1>
 	<ul>
 	{% for machine in dryer_list %}
-		<li><a href="{% url votes.views.detail machine.id %}">{{ machine }} - {{ machine.get_state_display }}</a></li>
+		<li>
+			<a href="{% url votes.views.detail machine.id %}">{{ machine }}</a>
+			 - <span class="state-{{ machine.state }}">{{ machine.get_state_display }}</span>
+		</li>
 	{% endfor %}
 	</ul>
 {% endif %}

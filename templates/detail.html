@@ -4,15 +4,22 @@
 {{ machine }} - {{ block.super }}
 {% endblock %}
 
-{% block header %}<h1>{{ machine }}</h1>{% endblock %}
-
 {% block content %}
 
 {% if err %}<p><strong>{{ err }}</strong></p>{% endif %}
 
-<p>
-{{ machine }} is {{ machine.get_state_display|upper }}. Last updated {{ machine.last_updated|timesince }} ago.
+<h1>{{ machine }} is {{ machine.get_state_display|upper }}</h1>
+<p>Last updated {{ machine.last_updated|timesince }} ago.
+
+{% if machine.latest_comment %}
+	Current status:</p>
+
+	<q>{{ machine.latest_comment }}</q>
+{% else %}
 </p>
+{% endif %}
+
+<h1>Update {{ machine.get_kind_display }} status</h1>
 
 <form action="{% url votes.views.edit machine.id %}" method="post">
 	{% csrf_token %}

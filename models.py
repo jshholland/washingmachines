@@ -24,6 +24,13 @@ class Machine(models.Model):
         elif self.kind == 'w':
             return u"Washing machine {}".format(self.number)
 
+    def latest_comment(self):
+        u = self.update_set.order_by("-time")
+        try:
+            return u[0].comment
+        except IndexError:
+            return u""
+
 
 class Update(models.Model):
     state = models.CharField(max_length=1, choices=STATE_CHOICES)

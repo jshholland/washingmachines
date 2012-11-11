@@ -1,0 +1,74 @@
+/* Main css file for Keble College washing machines website */
+
+/* Element defaults */
+
+html,body {
+	background-color: #7080D7;
+	font-family: 'Muli', sans-serif;
+	height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+
+}
+
+#wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+/* Header */
+
+header {
+	background-color: #071871;
+}
+
+header h1 {
+	margin: 0;
+	padding: .25rem 0;
+}
+
+header h1 a {
+	color: #eee;
+	text-decoration: none;
+	padding: .5rem;
+}
+
+/* Content */
+
+#content {
+	margin: 1em;
+	padding-bottom: 1.25em;
+}
+
+#content span {
+	border-radius: .4rem;
+}
+
+.state-b {
+	background-color: #FFB600;
+}
+
+.state-w {
+	color: #eee;
+	background-color: #162EAE;
+}
+
+label {
+	float: left;
+	width: 7rem;
+}
+
+/* Footer */
+
+footer {
+	font-size: .7rem;
+	background-color: #4A60D7;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 1.25em;
+	width: 100%;
+}
