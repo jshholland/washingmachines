@@ -20,9 +20,9 @@ class Machine(models.Model):
 
     def __unicode__(self):
         if self.kind == 'd':
-            return u"Dryer {}".format(self.number)
+            return u"Dryer {0}".format(self.number)
         elif self.kind == 'w':
-            return u"Washing machine {}".format(self.number)
+            return u"Washing machine {0}".format(self.number)
 
     def latest_comment(self):
         u = self.update_set.order_by("-time")
