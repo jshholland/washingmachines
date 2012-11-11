@@ -52,6 +52,7 @@ header h1 a {
 }
 
 #content span {
+	padding: 2px 5px;
 	border-radius: .4rem;
 }
 
