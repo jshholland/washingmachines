@@ -22,6 +22,7 @@
 		<li>
 			<a href="{% url votes.views.detail machine.id %}">{{ machine }}</a>
 			 - <span class="state-{{ machine.state }}">{{ machine.get_state_display }}</span>
+			 as of {{ machine.last_updated|timesince }} ago.
 		</li>
 	{% endfor %}
 	</ul>
