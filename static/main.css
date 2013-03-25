@@ -65,6 +65,15 @@ header h1 a {
 	background-color: #162EAE;
 }
 
+.state-u {
+	color: #eee;
+	background-color: #C4514E;
+}
+
+.state-f {
+	background-color: #77B942;
+}
+
 label {
 	float: left;
 	width: 7rem;

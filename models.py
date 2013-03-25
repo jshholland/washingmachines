@@ -4,6 +4,8 @@ from django.forms import ModelForm
 STATE_CHOICES = (
     ('w', 'working'),
     ('b', 'broken'),
+    ('u', 'in use'),
+    ('f', 'finished'),
 )
 
 KIND_CHOICES = (

@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from datetime import datetime
 from votes.models import Machine, Update, UpdateForm
+from votes.tasks import reset_in_use
+from django.conf import settings
 
 
 def index(request):
@@ -25,6 +27,8 @@ def edit(request, machine_id):
     if f.is_valid():
         m.last_updated = datetime.now()
         m.state = f.cleaned_data["state"]
+        if m.state == 'u':
+            reset_in_use.apply_async(args=(m,), delay=settings.WASHING_RUNTIME)
         f.save()
         m.save()
         return redirect('votes.views.result', m.id)
